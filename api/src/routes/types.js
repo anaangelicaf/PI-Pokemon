@@ -18,6 +18,7 @@ router.get("/", async (req, res, next) => {
             if (typesApi) {
                 typesApi = typesApi.map(t => {
                     return {
+                        id: t.id,
                         name: t.name
                     }
                 })
@@ -28,7 +29,10 @@ router.get("/", async (req, res, next) => {
         } else {
             const typesBD = await Type.findAll()
             let typesBD2 = typesBD.map((e) => {
-                return e.name
+                return  {
+                    id: e.id,
+                    name: e.name
+                }
             })
             res.send(typesBD2)
             console.log("Segunda instancia,no Copia en BD")
@@ -36,6 +40,7 @@ router.get("/", async (req, res, next) => {
     } catch (error) {
         next(error)
     }
+    
 })
 
 module.exports = router
