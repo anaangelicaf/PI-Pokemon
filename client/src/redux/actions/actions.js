@@ -9,14 +9,14 @@ export const getTypes = () => async (dispatch) => {
     });
   };
   
-  export const getType = () => async(dispatch) => {
+  /*export const getType = () => async(dispatch) => {
     const response = await fetch(`http://localhost:3001/types`);
     const types = await response.json();
     dispatch({
       type: "GET_TYPES",
       types
     })
-  }
+  }*/
   
   export const getPokemons = () => async (dispatch) => {
     const response = await fetch(`http://localhost:3001/pokemons`);
@@ -39,7 +39,7 @@ export const getTypes = () => async (dispatch) => {
       payload: data,
     });
   };*/
-  export function getByName(name){
+export function getByName(name){
     return async function(dispatch){
        
         let response
@@ -48,6 +48,7 @@ export const getTypes = () => async (dispatch) => {
           const data = await response.json();
           dispatch({type: "GET_NAME", payload: data})
         }catch(err){
+          dispatch(getPokemons());
           alert("Pokemon no encontrado" )
         }
         
