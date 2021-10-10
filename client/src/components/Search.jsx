@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./styles.css/Search.css";
 import { useSelector, useDispatch } from "react-redux";
-import { filters, getByName, order, type } from "../redux/actions/actions";
+import { filters, getByName, order, type, getPokemons } from "../redux/actions/actions";
 
 export const Search = () => {
   const dispatch = useDispatch();
+  
   const [pokemons, setPokemons] = useState("");
 
   const options = useSelector((store) => store.types);
@@ -15,6 +16,7 @@ export const Search = () => {
   };
 
   const byTipo = (e) => {
+    dispatch(getPokemons());
     dispatch(type(e.target.value));
   }
   

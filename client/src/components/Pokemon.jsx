@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./styles.css/Pokemon.css";
 import Stats from "./Stats.jsx";
-
+import { useDispatch } from "react-redux";
+import { getPokemons } from "../redux/actions/actions";
 
 export const Pokemon = () => {
   const { id } = useParams();
 
   const [pokemon, setPokemon] = useState({});
-
+  const dispatch = useDispatch();
   
   useEffect(() => {
     detalles();
@@ -23,11 +24,37 @@ export const Pokemon = () => {
     setPokemon(pokemon);
     
   };
+  const submit = async (e) => {
+    
+    e.preventDefault();
+    
+    if ((id.toString().length) > 10){
+      
+      try{
+        await fetch(`http://localhost:3001/pokemons/${id}`, {
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+        dispatch(getPokemons());
+        alert("Pokemon Eliminado")
+      }catch{
+        dispatch(getPokemons());
+        alert("Pokemon no se puede Eliminar")
+      } 
+    } else{
+      dispatch(getPokemons());
+      alert("Pokemon no se puede Eliminar es de la API")
+    }
+  };
 
   return (
     <>
       <div className="containerpokemon">
-        <div className="bkg">
+      <form action="DELETE" className="bkg" onSubmit={submit}>
+      
           <h1>{pokemon.name}</h1>
           <h2>#{pokemon.id}</h2>
 
@@ -37,6 +64,10 @@ export const Pokemon = () => {
             <div className="parrafo">
               <p>peso: {pokemon.weight}kg</p>
               <p>altura: {pokemon.height}ft</p>
+            </div>
+
+            <div className="eliminar">
+            <input type="submit" value="Delete" className="submit" />
             </div>
           </div>
           
@@ -58,7 +89,8 @@ export const Pokemon = () => {
               <Stats valor={pokemon.speed} nombre={"Velocidad"} />
             </div>
           </div>
-        </div> 
+         
+        </form>
       </div>
     </>
   );

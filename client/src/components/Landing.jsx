@@ -18,7 +18,7 @@ export const Landing = () => {
             <input type="submit" value="See Pokemon" className="myButton" />
           </Link>
   
-          <h3 className="love">Hecho con &hearts; para henry</h3>
+          <h3 className="love">Realizado por Ana Fernández con &hearts; para henry</h3>
         </div>
   
         

@@ -70,7 +70,7 @@ export const Form = () => {
     
     e.preventDefault();
     
-    const crear = await fetch("http://localhost:3001/pokemons", {
+    await fetch("http://localhost:3001/pokemons", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -78,7 +78,7 @@ export const Form = () => {
       },
       body: JSON.stringify(data),
     });
-    console.log('crear ' + JSON.stringify(crear))
+    
     dispatch(getPokemons());
     alert("Pokemon creado")
     
