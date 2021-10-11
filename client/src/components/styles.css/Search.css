@@ -1,0 +1,67 @@
+.container {
+    margin: 25px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .field {
+    display: flex;
+    position: relative;
+    margin: 5em auto;
+    
+    flex-direction: row;
+    width: 77%;
+    box-shadow: 1px 1px 0 rgb(26, 123, 188), 2px 2px 0 rgb(26, 123, 188),
+      3px 3px 0 rgb(26, 123, 188), 4px 4px 0 rgb(26, 123, 188),
+      5px 5px 0 rgb(26, 123, 188), 6px 6px 0 rgb(26, 123, 188),
+      7px 7px 0 rgb(26, 123, 188);
+  }
+  
+  .field > input[type="text"],
+  .field > .button {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+  }
+  .field > .button:hover {
+    background-color: rgb(21, 38, 190);
+    filter: drop-shadow(0 0 5px #3a1c71);
+  }
+  .field > input[type="text"] {
+    flex: 1;
+    padding: 0.6em;
+    border: 0.2em solid rgb(26, 123, 188);
+    
+    
+  }
+  .field > input[type="text"]::placeholder {
+    color: rgba(167, 165, 165, 0.781);
+  }
+
+  .field > .button {
+    padding: 0.6em 0.8em;
+    background-color: rgb(26, 123, 188);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  .field2 {
+    margin-top: -60px;
+    margin-bottom: -50px;
+  }
+  
+  .field2 > .button {
+    padding: 0.6em 0.8em;
+    background-color: rgb(26, 123, 188);
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .field2 > .button:hover {
+    background-color: rgb(21, 38, 190);
+    filter: drop-shadow(0 0 5px #3a1c71);
+  }

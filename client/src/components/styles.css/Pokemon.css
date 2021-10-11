@@ -1,0 +1,227 @@
+.containerpokemon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  background-image: url("Image/fondo.jpg");
+  background-size: cover;
+  padding-bottom: 25px;
+  
+  }
+  .bkg {
+    width: 85%;
+    backdrop-filter: blur(18px);
+    border-radius: 1.5rem;
+    margin-top: 100px;
+    
+  }
+
+  .containerpokemon h1 {
+    font-weight: 800;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    color:rgb(218, 6, 6);
+  }
+  .containerpokemon h3 {
+    font-weight: 800;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  
+  }
+  .containerpokemon h2 {
+    letter-spacing: 10px;
+    font-size: 2em;
+    margin-right: 20px;
+    color:white;
+  }
+  
+ .ima {
+  display: flex;
+  margin-top: 0px;
+ }
+  
+  .ima .parrafo p {
+    margin-top: 20px;
+    text-transform: capitalize;
+    
+  }
+  .ima img {
+   height:150px;
+  }
+  .ima input {
+    height:50px;
+    width: 150px;
+  
+  }
+  .type {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 400px;
+
+  }
+  .type .grass {
+    width: 40%;
+    border-radius: 20px;
+    background:#99FF66;
+  }
+  
+  .type .normal {
+    width: 40%;
+    border-radius: 20px;
+    background: #DDCCAA;
+  }
+  
+  .type .ground {
+    width: 40%;
+    border-radius: 20px;
+    background: #b1742c;
+  }
+  
+  .type .water {
+    width: 40%;
+    border-radius: 20px;
+    background: #B0E2FF;
+  }
+  
+  .type .rock {
+    width: 40%;
+    border-radius: 20px;
+    background:#CD853F;
+  }
+  
+  .type .electric {
+    width: 40%;
+    border-radius: 20px;
+    background: #FFD700;
+
+  }
+  
+  .type .fire {
+    width: 40%;
+    border-radius: 20px;
+    background: #FF7F00;
+  }
+  
+  .type .psychic {
+    width: 40%;
+    border-radius: 20px;
+    background: #ffb5c5;
+  }
+  
+  .type .dark {
+    color: white;
+    width: 40%;
+    border-radius: 20px;
+    background: #A9A9A9;
+  }
+  
+  .type .shadow {
+    color: white;
+    width: 40%;
+    border-radius: 20px;
+    background:rgba(16, 11, 50, 1) 33%,
+    
+  }
+  
+  .type .poison {
+ 
+    width: 40%;
+    border-radius: 20px;
+    background: #CC88BB;
+  }
+  
+  .type .bug {
+    width: 40%;
+    border-radius: 20px;
+    background: #99CC33;
+  }
+  
+  .type .ice {
+    width: 40%;
+    border-radius: 20px;
+    background:#ADD8E6;
+  }
+  .type .ghost {
+    color: white;
+    width: 40%;
+    border-radius: 20px;
+    background: #778899;
+  }
+  
+  .type .steel {
+    color: black;
+    width: 40%;
+    border-radius: 20px;
+    background: #CCCCCC;
+  }
+  
+  .type .fairy {
+    width: 40%;
+    border-radius: 20px;
+    background: #FFB0FF;
+   
+  }
+  
+  .type .flying {
+    width: 35%;
+    border-radius: 20px;
+    background: #BAAAFF;
+  }
+  
+  .type .dragon {
+    width: 35%;
+    border-radius: 20px;
+    background: #AB82FF ;
+  }
+  
+  .type .fighting {
+    width: 35%;
+    border-radius: 20px;
+    background:  #FF6A6A;
+  }
+  
+  .type-meter {
+    display: flex;
+    justify-content: space-around;
+    color:white;
+    margin-top: -10px;
+  }
+  
+  meter {
+    margin-top:5px;
+    width: 450px;
+    height: 50px;
+    
+    
+  }
+  
+  p {
+    font-weight: 800;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+  
+  p span {
+    font-weight: 600;
+  }
+  img.Image1 {
+    margin-top:-500px;
+    margin-left: -50px;
+     height:15px;
+   }
+   img.Image2 {
+    margin-top:-500px;
+    margin-left: 400px;
+     height:15px;
+   }
+   img.Image3 {
+    margin-top:-100px;
+    margin-left: 150px;
+     height:15px;
+   }
+   img.Image4 {
+    margin-top:-80px;
+    margin-right: -150px;
+     height:15px;
+   }

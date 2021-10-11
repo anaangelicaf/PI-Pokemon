@@ -6,7 +6,7 @@
 	height: 100%;
 	background-image: url("Image/fondo.jpg");
 	background-size: cover;
-	
+	padding-bottom: 25px;
 }
 .containerlanding .h1 {
     font-weight: 800;
@@ -14,6 +14,12 @@
 	margin-top: 150px;
 	filter: drop-shadow(0 0 0.80rem white);
 }
+.containerlanding .imgpika {
+	margin-top: 200px;
+	margin-bottom: 90px;
+	height:100px;
+}
+
 .containerlanding .love {
     left: 10px;
     bottom: 0;
@@ -37,7 +43,7 @@
 	padding:9px 25px;
 	text-decoration:none;
 	text-shadow:0px 2px 0px #0a0a0a00;
-	margin-bottom: 50px;
+	
 	height: 50px;
 	width: 200px;
 
@@ -51,11 +57,5 @@
 	top:1px;
 }
 
-.containerlanding .img {
-    margin-top: 190px;
-	margin-bottom: 40px;
-    height: 75%;
-	margin-left: -120px;
-}
 
 
