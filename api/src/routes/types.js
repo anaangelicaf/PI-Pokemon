@@ -25,7 +25,7 @@ router.get("/", async (req, res, next) => {
             }
             await Type.bulkCreate(typesApi)
             res.send(typesApi.map(p => p.name))
-            console.log("Primero instancia, copia en BD")
+            
         } else {
             const typesBD = await Type.findAll()
             let typesBD2 = typesBD.map((e) => {
@@ -35,7 +35,7 @@ router.get("/", async (req, res, next) => {
                 }
             })
             res.send(typesBD2)
-            console.log("Segunda instancia,no Copia en BD")
+            
         }
     } catch (error) {
         next(error)

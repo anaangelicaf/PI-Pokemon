@@ -42,7 +42,7 @@ router.get('/', async (req, res, next) => {
                             name: pok.data.name,
                             type: pok.data.types.map(e => e.type.name),
                             img: pok.data.sprites.other.dream_world.front_default,
-                            attack: pok.data.stats[0].base_stat
+                            attack: pok.data.stats[1].base_stat
                         })
                     })
                return res.status(200).send(rApi)
@@ -109,7 +109,7 @@ router.get('/', async (req, res, next) => {
             try {
                 let pBD = await Pokemon.findAll( {include :Type } )
                 if (pBD) {
-                    console.log('hola todos bd')
+                    
                     pBD = pBD.map(p => {
                         return {
                             id: p.id,
@@ -146,7 +146,7 @@ router.get('/', async (req, res, next) => {
                             name: pok.data.name,
                             type: pok.data.types.map(e => e.type.name),
                             img: pok.data.sprites.other.dream_world.front_default,
-                            attack: pok.data.stats[0].base_stat
+                            attack: pok.data.stats[1].base_stat
                         })
                     })
                 res.status(200).send(pBD.concat(rApi))
@@ -222,7 +222,19 @@ router.post("/", async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-    
-    
+})
+
+router.delete("/:id", async (req, res, next) => {
+    const { id } = req.params
+    if (id.length > 10) {
+        try {
+            const eliminado = await Pokemon.destroy({ where:{id : id}});
+            return res.json(eliminado)
+        } catch (error) {
+            next("El id es incorrecto")
+        }
+    }else{
+        return res.send("No se pudo encontrar")
+    }
 })
 module.exports = router;
