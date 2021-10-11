@@ -11,9 +11,9 @@ export const Landing = () => {
               Welcome to the Pokemon World
           </h1>
          
-          <div className="img">
-            <img src={Pikachu} alt="" />
-          </div>
+          
+            <img src={Pikachu} alt="" className="imgpika"/>
+          
           <Link to="/home" refresh="true">
             <input type="submit" value="See Pokemon" className="myButton" />
           </Link>

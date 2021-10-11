@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.css/Pokecard.css";
+import attack from "./styles.css/Image/attack.png";
 
 export const PokeCard = ({ array, img }) => {
   return (
@@ -15,7 +16,7 @@ export const PokeCard = ({ array, img }) => {
                   <img src={p.img} alt="" className="CardImage" />
                 </div>
                 <figcaption className="cardCaption">
-                <h2 className="cardName">#{p.id}-{p.name}</h2>
+                <h2 className="cardName">{p.name}</h2>
                   {p.type.length === 2 ? (
                     <div className="types">
                       <h3 className="cardType">{p.type[0]}</h3>
@@ -26,7 +27,8 @@ export const PokeCard = ({ array, img }) => {
                       <h3 className="cardType">{p.type[0]}</h3>
                     </div>
                   )}
-                  
+                <img src={attack} alt="" className="Image"/>  
+                <h4 className="cardName">ATTACK: {p.attack}</h4>
                 </figcaption>
               </figure>
             </Link>

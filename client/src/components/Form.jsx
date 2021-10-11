@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemons } from "../redux/actions/actions";
 import "./styles.css/Form.css";
+import Crear from "./styles.css/Image/crear.jpg";
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -148,7 +149,7 @@ export const Form = () => {
             />
           </p>
           <p className="question">
-            <label>Altura</label>
+            <label>Altura (dm)</label>
             <input
               type="number"
               name="height"
@@ -157,7 +158,7 @@ export const Form = () => {
             />
           </p>
           <p className="question">
-            <label>Peso</label>
+            <label>Peso (hg)</label>
             <input
               type="number"
               name="weight"
@@ -183,8 +184,14 @@ export const Form = () => {
                 {t.id % 4 === 0 ? <br /> : null}
               </div>
             ))}
-            <input type="submit" value="Crear" className="submit" />
           </div>
+            <div className="crear">
+              <img src={Crear} alt="" />
+            </div>
+
+            <input type="submit" value="Crear" className="submit" />
+          
+          
         </div>
       </form>
     </div>

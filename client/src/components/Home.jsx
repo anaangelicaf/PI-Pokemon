@@ -78,7 +78,9 @@ export const Home = () => {
       </div>
       <PokeCard
         array={array}
-        img={"https://c.tenor.com/F30e8arYkdYAAAAC/pokemon-spinning.gif"}
+        
+          img={"https://i.kym-cdn.com/photos/images/original/000/891/176/b6f.gif"}
+        
       />
     </div>
   );

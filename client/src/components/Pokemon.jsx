@@ -5,6 +5,7 @@ import Stats from "./Stats.jsx";
 import { useDispatch } from "react-redux";
 import { getPokemons } from "../redux/actions/actions";
 
+
 export const Pokemon = () => {
   const { id } = useParams();
 
@@ -62,8 +63,8 @@ export const Pokemon = () => {
           <div className="ima">
             <img src={pokemon.img} alt="" />
             <div className="parrafo">
-              <p>peso: {pokemon.weight}kg</p>
-              <p>altura: {pokemon.height}ft</p>
+              <p>Peso: {pokemon.weight/10}kg</p>
+              <p>Altura: {pokemon.height/10}m</p>
             </div>
 
             <div className="eliminar">
@@ -81,13 +82,23 @@ export const Pokemon = () => {
           
           <div className="meter">
             <div className="type-meter">
-              <Stats valor={pokemon.life} nombre={"HP"} />
+            
+
+            
+              <Stats valor={pokemon.life} nombre={"Vida"} />
+              
               <Stats valor={pokemon.attack} nombre={"Fuerza"} />
             </div>
             <div className="type-meter">
+            
+
+            
               <Stats valor={pokemon.defense} nombre={"Defensa"} />
+              
               <Stats valor={pokemon.speed} nombre={"Velocidad"} />
             </div>
+            
+           
           </div>
          
         </form>
