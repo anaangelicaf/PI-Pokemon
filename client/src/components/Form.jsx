@@ -7,7 +7,7 @@ import Crear from "./styles.css/Image/crear.jpg";
 export const Form = () => {
   const dispatch = useDispatch();
   const options = useSelector((store) => store.types);
-
+  
   const validate = (input) => {
     let errors = {};
     if (!input.name) {
@@ -29,48 +29,61 @@ export const Form = () => {
   });
 
   const [errors, setErrors] = useState({});
-
+  
   const handleInputChange = (e) => {
+    
     if (e.target.name !== "name") {
+      
       setData({
         ...data,
         [e.target.name]: Number(e.target.value) <= 0 ? 0 : e.target.value,
       });
     } else {
-      setErrors(
-        validate({
+      
+      if(!Number(e.target.value)){
+        setErrors(
+          validate({
+            ...data,
+            [e.target.name]: e.target.value,
+          })
+        );
+        setData({
           ...data,
           [e.target.name]: e.target.value,
-        })
-      );
-      setData({
-        ...data,
-        [e.target.name]: e.target.value,
-      });
+        });
+      }
     }
   };
 
   const checkbox = (e) => {
     
     if (data.types.includes(e.target.value)) {
+      
       data.types = data.types.filter((id) => id !== e.target.value);
       
       setData({
         ...data,
         types: data.types,
       });
+      
     } else {
+      
       setData({
         ...data,
         types: [...data.types, e.target.value],
+        
       });
+      
     }
   };
   
   const submit = async (e) => {
     
-    e.preventDefault();
+    let vacio = data.types
     
+  if (vacio.length !== 0) {
+    e.preventDefault();
+      
     await fetch("http://localhost:3001/pokemons", {
       method: "POST",
       headers: {
@@ -78,21 +91,30 @@ export const Form = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
+      
     });
     
     dispatch(getPokemons());
     alert("Pokemon creado")
+  
+  setData({
+    name: "",
+    life: 0,
+    attack: 0,
+    defense: 0,
+    speed: 0,
+    height: 0,
+    weight: 0,
+    types: [],
+  });
+  }else{
+    e.preventDefault();
     
-    setData({
-      name: "",
-      life: 0,
-      attack: 0,
-      defense: 0,
-      speed: 0,
-      height: 0,
-      weight: 0,
-      types: [],
-    });
+    window.alert("Seleccione un tipo");
+    
+  
+  }
+      
   };
 
   return (

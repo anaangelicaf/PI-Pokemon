@@ -16,13 +16,29 @@ export const Home = () => {
   if (order) pokemons = ordered(order, pokemons);
 
   let [page, setPage] = useState(0);
-  let prox = 0;
-  /*const pagination = () => {
+ /* 
+  const pagination = () => {
     if (pokemons.length) return pokemons.slice(page, page + 12);
     if (pokemons.info) return pokemons;
     return [];
     
-  };*/
+  };
+
+  const array = pagination();
+
+  const nextPage = () => {
+    if (pokemons.length > page + 12) {
+      setPage(page + 12);
+    }
+  };
+
+  const previusPage = () => {
+    if (page > 0) {
+      setPage(page - 12);
+    }
+  };
+  */
+  let prox = 0;
   const pagination = () => {
     if ((prox === 0 ) && (page === 0)){
       if (pokemons.length){

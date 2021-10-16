@@ -21,15 +21,16 @@ function App() {
   
     return (
       <>
-        <Navbar />
-        <Route exact path="/pokemons/:id" >
-          <Pokemon />
-        </Route>
+         <Navbar />
         <Route exact path="/">
           <Landing />
         </Route>
+       
         <Route exact path="/home">
           <Home />
+        </Route>
+        <Route exact path="/pokemons/:id" >
+          <Pokemon />
         </Route>
         <Route exact path="/create">
           <Create />

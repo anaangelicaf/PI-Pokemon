@@ -11,10 +11,13 @@ export const tipos = (type, array) => {
   
     switch (order) {
       case "a-z":
+        
         names = names.sort();
+        
         names.forEach((p) => {
           array.forEach((po) => {
             if (p === po.name) orde.push(po);
+            
           });
         });
         return orde;
@@ -27,6 +30,7 @@ export const tipos = (type, array) => {
         });
         return orde;
       case "fuerza+":
+
         attack = attack.sort((a, b) => b - a);
         attack.forEach((f) => {
           array.forEach((p) => {
@@ -48,7 +52,7 @@ export const tipos = (type, array) => {
         return array;
     }
   };
-  export const creado = (filters, array) => {
+ /* export const creado = (filters, array) => {
     let id = array.map((o) => o.id);
 
     let cre = [];
@@ -75,4 +79,4 @@ export const tipos = (type, array) => {
       default:
         return array;
     }
-  };
+  };*/

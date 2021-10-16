@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.css/Pokecard.css";
 import attack from "./styles.css/Image/attack.png";
+import defense from "./styles.css/Image/defense.png";
 
 export const PokeCard = ({ array, img }) => {
   return (
@@ -29,6 +30,7 @@ export const PokeCard = ({ array, img }) => {
                   )}
                 <img src={attack} alt="" className="Image"/>  
                 <h4 className="cardName">ATTACK: {p.attack}</h4>
+                
                 </figcaption>
               </figure>
             </Link>

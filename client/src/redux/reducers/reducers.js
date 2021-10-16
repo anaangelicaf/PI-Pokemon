@@ -3,16 +3,12 @@ const initialState = {
     pokemons: [],
     type: "",
     order: "",
-    team: [],
+    
   };
   
   const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-      case "GET_TYPES":
-        return {
-          ...state,
-          types: action.types
-        };
+      
       case "GET_TYPE":
         return {
           ...state,
@@ -43,12 +39,7 @@ const initialState = {
           ...state,
           order: action.payload,
         };
-      case "ADD":
-        if(state.team.length === 8) state.team.shift();
-        return {
-          ...state,
-          team: [...state.team, action.payload]
-        };
+      
       default:
         return state;
     }

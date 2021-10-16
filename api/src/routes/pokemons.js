@@ -7,8 +7,8 @@ const { v4: uuidv4 } = require('uuid');
 router.use(express.json())
 
 router.get('/', async (req, res, next) => {
-    //Primero reviso si me envian el nombre por query
-    const { name, by } = req.query;
+    //Primero reviso si me envian el nombre o el creado by por query
+    const { name, by, type } = req.query;
    
     if (by) {
        
@@ -22,8 +22,8 @@ router.get('/', async (req, res, next) => {
                             name: p.name,
                             type: p.dataValues.types.map((p)=>p.dataValues.name),
                             img: p.image,
-                            creado: p.creadoByMe,
-                            attack: p.attack
+                            attack: p.attack,
+                            
                         }
                     })
                     return res.status(200).send(pBD)
@@ -42,7 +42,8 @@ router.get('/', async (req, res, next) => {
                             name: pok.data.name,
                             type: pok.data.types.map(e => e.type.name),
                             img: pok.data.sprites.other.dream_world.front_default,
-                            attack: pok.data.stats[1].base_stat
+                            attack: pok.data.stats[1].base_stat,
+                            
                         })
                     })
                return res.status(200).send(rApi)
@@ -55,6 +56,7 @@ router.get('/', async (req, res, next) => {
     if (name) {
         
         try {
+            
             const pBD = await Pokemon.findAll({
                 where: {
                     name: name
@@ -76,7 +78,6 @@ router.get('/', async (req, res, next) => {
                         weight: p.weight,
                         height: p.height,
                         img: p.image,
-                        //type: p.types.map(type => Number(type.name)),
                         type: p.types.map((p)=>p.name),
                     })
                 })
@@ -104,6 +105,7 @@ router.get('/', async (req, res, next) => {
                 ? res.status(404).send('No se pudo encontrar al pokemon')
                 : res.status(500).send(`Server error: ${error}`)
         }
+  
     } else {
         //si no envian nada por quiery traigo todos los Pokemons
             try {
@@ -117,26 +119,19 @@ router.get('/', async (req, res, next) => {
                             type: p.dataValues.types.map((p)=>p.dataValues.name),
                             img: p.image,
                             creado: p.creadoByMe,
-                            attack: p.attack
+                            attack: p.attack,
+                            defense: p.defense
                         }
                     })
                 }
         
-                //const pApi = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=40")
+                
                 const pApi =  (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=40')).data.results
-                //let datosPApi = pApi.data.results
+                
                 let pData = []
-                //for (let p of datosPApi) {
+                
                     for (let p of pApi) {  
-                    /*let subReq = p.url
-                    let subReqPoke = await axios.get(`${subReq}`)
-                    pData.push({
-                        id:subReqPoke.data.id,
-                        name: subReqPoke.data.name,
-                        type: subReqPoke.data.types.map(e => e.type.name),
-                        img: subReqPoke.data.sprites.other.dream_world.front_default,
-                        attack: subReqPoke.data.stats[1].base_stat,
-                    })*/
+                    
                         pData.push(axios.get(p.url))
                     }
                     let rApi = (await Promise.all(pData)).map(pok => {
@@ -146,7 +141,8 @@ router.get('/', async (req, res, next) => {
                             name: pok.data.name,
                             type: pok.data.types.map(e => e.type.name),
                             img: pok.data.sprites.other.dream_world.front_default,
-                            attack: pok.data.stats[1].base_stat
+                            attack: pok.data.stats[1].base_stat,
+                            defense: pok.data.stats[2].base_stat,
                         })
                     })
                 res.status(200).send(pBD.concat(rApi))
@@ -202,6 +198,7 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
+
 router.post("/", async (req, res, next) => {
     const { name, life, attack, defense, speed, weight, height, image, types } = req.body
     try {
@@ -217,7 +214,7 @@ router.post("/", async (req, res, next) => {
             image:"https://media.redadn.es/imagenes/pokemaster_340798.jpg"
         })
         await newPoke.addTypes(types) //para añadir los tipos a la tabla intermedia 
-        // await newPoke.addType(type)
+        
         return res.send(newPoke)
     } catch (error) {
         next(error)

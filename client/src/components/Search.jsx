@@ -12,7 +12,10 @@ export const Search = () => {
   const button = "button";
 
   const handleInputChange = (e) => {
-    setPokemons(e.target.value);
+    
+    if(!Number(e.target.value)){
+      setPokemons(e.target.value);
+    }
   };
 
   const byTipo = (e) => {
